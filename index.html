@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculadora de IMC</title>
+  </head>
+  <body>
+    <script>
+      function onSubmit(e) {
+        e.preventDefault();
+        const { weight, height } = Object.fromEntries(new FormData(e.target));
+        alert(`Seu IMC é de ${weight / (height * height)}.`);
+      }
+    </script>
+    <form onsubmit="return onSubmit(event)">
+      <div>
+        <label for="weight">Peso:</label>
+        <input
+          id="weight"
+          name="weight"
+          placeholder="Digite seu peso"
+          type="number"
+          min="0"
+          required
+        />
+      </div>
+      <div>
+        <label for="height">Altura:</label>
+        <input
+          id="height"
+          name="height"
+          placeholder="Digite sua altura"
+          type="number"
+          step="0.01"
+          min="0"
+          required
+        />
+      </div>
+      <input type="submit" value="Calcular" />
+    </form>
+  </body>
+</html>
